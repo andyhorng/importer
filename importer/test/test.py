@@ -23,7 +23,7 @@ def items(rows):
                 "quantity": int(row["Quantity"]),
                 }
 
-    return map(f, rows)
+    return list(map(f, rows))
 
 if __name__ == "__main__":
     import unittest
@@ -31,12 +31,12 @@ if __name__ == "__main__":
         def test_0(self):
             import pkgutil
             import csv
-            import StringIO
+            import io
             import importer
             from importer.test import test
 
             order_csv = pkgutil.get_data(__package__, "/fixtures/order.csv")
-            f = StringIO.StringIO(order_csv)
+            f = io.StringIO(order_csv)
 
             # Assumes the CSV has header
             csv_reader = csv.DictReader(f)

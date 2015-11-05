@@ -10,7 +10,7 @@ def process(module, reader):
 
     orders = defaultdict(dict)
 
-    for key, rows in grouped_rows.items():
+    for key, rows in list(grouped_rows.items()):
         orders[module.id_(rows)] = {
                 "id": module.id_(rows),
                 "name": module.name(rows),
