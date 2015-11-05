@@ -36,7 +36,7 @@ if __name__ == "__main__":
             from importer.test import test
 
             order_csv = pkgutil.get_data(__package__, "/fixtures/order.csv")
-            f = io.StringIO(order_csv)
+            f = io.StringIO(order_csv.decode('utf-8'))
 
             # Assumes the CSV has header
             csv_reader = csv.DictReader(f)
